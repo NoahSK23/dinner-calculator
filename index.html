@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculate Dinner</title>
+  </head>
+  <body data-bs-theme="dark">
+    <div class="container my-4 align-items-center">
+      <h2 class="my-4">Calculate Dinner</h2>
+      <div class="row">
+        <div class="col-6">
+          <label for="totalPrice" class="form-label">
+            Grand Total for All (for tip Calculation):
+          </label>
+          <input
+            id="totalPrice"
+            class="form-control"
+            type="number"
+            placeholder="Enter Price"
+            required
+          />
+        </div>
+        <div class="col-6 text-end">
+          <label for="totalPeople" class="form-label">
+            Number of people who came (for tip Calculation):
+          </label>
+          <input
+            id="totalPeople"
+            class="form-control"
+            type="number"
+            placeholder="Enter people"
+            required
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <h2 class="mt-4">My Dinner Items</h2>
+          <ul id="myItemList"></ul>
+          <div class="row">
+            <div class="col-6">
+              <input
+                type="number"
+                class="form-control"
+                id="myItemPrice"
+                placeholder="Enter price"
+                onkeypress="handleKeyPress(event, 'my')"
+              />
+            </div>
+            <div class="col">
+              <button onclick="addItem('my')" class="btn btn-outline-light">
+                Add Item
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="my-4">
+            <h2>Brother's Dinner Items</h2>
+            <ul id="brotherItemList"></ul>
+            <div class="row">
+              <div class="col-6">
+                <input
+                  type="number"
+                  class="form-control"
+                  id="brotherItemPrice"
+                  placeholder="Enter price"
+                  onkeypress="handleKeyPress(event, 'brother')"
+                />
+              </div>
+              <div class="col">
+                <button
+                  onclick="addItem('brother')"
+                  class="btn btn-outline-light"
+                >
+                  Add Item
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="totals" class="d-none">
+        <h2>Totals</h2>
+        <p id="myTotal"></p>
+        <p id="myTotalTip"></p>
+        <p id="myTotalTaxTip"></p>
+
+        <p id="brotherTotal"></p>
+        <p id="brotherTotalTip"></p>
+        <p id="brotherTotalTaxTip"></p>
+
+        <p id="grandTotal"></p>
+      </div>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
