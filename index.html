@@ -46,11 +46,10 @@
                 class="form-control"
                 id="myItemPrice"
                 placeholder="Enter price"
-                onkeypress="handleKeyPress(event, 'my')"
               />
             </div>
             <div class="col">
-              <button onclick="addItem('my')" class="btn btn-outline-light">
+              <button id="addMyItem" class="btn btn-outline-light">
                 Add Item
               </button>
             </div>
@@ -67,14 +66,10 @@
                   class="form-control"
                   id="brotherItemPrice"
                   placeholder="Enter price"
-                  onkeypress="handleKeyPress(event, 'brother')"
                 />
               </div>
               <div class="col">
-                <button
-                  onclick="addItem('brother')"
-                  class="btn btn-outline-light"
-                >
+                <button id="addBrotherItem" class="btn btn-outline-light">
                   Add Item
                 </button>
               </div>

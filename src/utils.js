@@ -1,3 +1,4 @@
+import { addItem } from './calculate.js';
 export function createHr() {
   const hr = document.createElement('hr');
   return hr;
