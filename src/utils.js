@@ -8,3 +8,19 @@ export const handleKeyPress = (e, person) => {
     addItem(person);
   }
 };
+
+export function setup() {
+  const addMyItem = document.getElementById('addMyItem');
+  const addBrotherItem = document.getElementById('addBrotherItem');
+
+  addMyItem.addEventListener('click', () => addItem('my'));
+  addBrotherItem.addEventListener('click', () => addItem('brother'));
+
+  const myItemPrice = document.getElementById('myItemPrice');
+  const brotherItemPrice = document.getElementById('brotherItemPrice');
+
+  myItemPrice.addEventListener('keypress', (e) => handleKeyPress(e, 'my'));
+  brotherItemPrice.addEventListener('keypress', (e) =>
+    handleKeyPress(e, 'brother')
+  );
+}
