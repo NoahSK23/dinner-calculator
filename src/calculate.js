@@ -11,11 +11,11 @@ export function addItem(person) {
     return;
   }
   if (isNaN(allTotal)) {
-    alert('Please enter a vaild number for total price');
+    alert('Please enter a valid number for total price');
     return;
   }
   if (isNaN(people)) {
-    alert('Please enter a vaild number for total people');
+    alert('Please enter a valid number for total people');
     return;
   }
   const list = document.getElementById(person + 'ItemList');
@@ -39,22 +39,9 @@ export function addItem(person) {
 export function calculateTotals(allTotal, people) {
   const totalsDiv = document.getElementById('totals');
   totalsDiv.removeAttribute('class');
-  const myItems = document
-    .getElementById('myItemList')
-    .getElementsByTagName('li');
-  const brotherItems = document
-    .getElementById('brotherItemList')
-    .getElementsByTagName('li');
-  let myTotal = 0,
-    brotherTotal = 0;
 
-  Array.from(myItems).forEach((item) => {
-    myTotal += parseFloat(item.firstChild.textContent.replace('$', ''));
-  });
-
-  Array.from(brotherItems).forEach((item) => {
-    brotherTotal += parseFloat(item.firstChild.textContent.replace('$', ''));
-  });
+  const myTotal = calculateIndividualTotal('myItemList');
+  const brotherTotal = calculateIndividualTotal('brotherItemList');
 
   const taxRate = 0.06;
   const tipRate = 0.2;
@@ -67,18 +54,19 @@ export function calculateTotals(allTotal, people) {
   document.getElementById('myTotal').textContent =
     'My Total: $' + myTotal.toFixed(2);
   document.getElementById('myTotalTip').textContent =
-    'Total + Tip: $' + (myTotal + myTip).toFixed(2);
+    `Total + Tip (${myTip.toFixed(2)}): $` + (myTotal + myTip).toFixed(2);
   document.getElementById('myTotalTaxTip').textContent =
-    `Total + Tax + Tip ($${myTax.toFixed(2)}): $` +
+    `Total + Tip + Tax ($${myTax.toFixed(2)}): $` +
     (myTotal + myTip + myTax).toFixed(2);
   document.getElementById('myTotalTaxTip').append(createHr());
 
   document.getElementById('brotherTotal').textContent =
     "Brother's Total: $" + brotherTotal.toFixed(2);
   document.getElementById('brotherTotalTip').textContent =
-    'Total + Tip: $' + (brotherTotal + brotherTip).toFixed(2);
+    `Total + Tip (${brotherTip.toFixed(2)}): $` +
+    (brotherTotal + brotherTip).toFixed(2);
   document.getElementById('brotherTotalTaxTip').textContent =
-    `Total + Tax + Tip ($${brotherTax.toFixed(2)}): $` +
+    `Total + Tip + Tax ($${brotherTax.toFixed(2)}): $` +
     (brotherTotal + brotherTip + brotherTax).toFixed(2);
   document.getElementById('brotherTotalTaxTip').append(createHr());
 
@@ -87,4 +75,13 @@ export function calculateTotals(allTotal, people) {
     (myTotal + brotherTotal + myTax + brotherTax + myTip + brotherTip).toFixed(
       2
     );
+}
+
+function calculateIndividualTotal(listId) {
+  const items = document.getElementById(listId).getElementsByTagName('li');
+  let total = 0;
+  Array.from(items).forEach((item) => {
+    total += parseFloat(item.firstChild.textContent.replace('$', ''));
+  });
+  return total;
 }
