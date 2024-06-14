@@ -54,7 +54,7 @@ export function calculateTotals(allTotal, people) {
   document.getElementById('myTotal').textContent =
     'My Total: $' + myTotal.toFixed(2);
   document.getElementById('myTotalTip').textContent =
-    `Total + Tip (${myTip.toFixed(2)}): $` + (myTotal + myTip).toFixed(2);
+    `Total + Tip ($${myTip.toFixed(2)}): $` + (myTotal + myTip).toFixed(2);
   document.getElementById('myTotalTaxTip').textContent =
     `Total + Tip + Tax ($${myTax.toFixed(2)}): $` +
     (myTotal + myTip + myTax).toFixed(2);
@@ -63,7 +63,7 @@ export function calculateTotals(allTotal, people) {
   document.getElementById('brotherTotal').textContent =
     "Brother's Total: $" + brotherTotal.toFixed(2);
   document.getElementById('brotherTotalTip').textContent =
-    `Total + Tip (${brotherTip.toFixed(2)}): $` +
+    `Total + Tip ($${brotherTip.toFixed(2)}): $` +
     (brotherTotal + brotherTip).toFixed(2);
   document.getElementById('brotherTotalTaxTip').textContent =
     `Total + Tip + Tax ($${brotherTax.toFixed(2)}): $` +
