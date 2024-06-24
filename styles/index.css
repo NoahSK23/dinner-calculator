@@ -1,0 +1,5 @@
+:root {
+  [data-bs-theme='dark'] {
+    --bs-body-bg: #13171f;
+  }
+}
