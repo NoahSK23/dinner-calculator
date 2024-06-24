@@ -3,12 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="stylesheet" href="./styles/index.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dinner Calculator</title>
   </head>
   <body data-bs-theme="dark">
     <div class="container my-4 align-items-center">
-      <h2 class="my-4">Dinner Calculator</h2>
+      <div class="d-flex align-items-center">
+        <h2 class="my-4">Dinner Calculator</h2>
+        <button id="themeToggle" class="btn btn-outline-light ms-auto">
+          Toggle Theme
+        </button>
+      </div>
       <div class="row">
         <div class="col-6">
           <label for="totalPrice" class="form-label">

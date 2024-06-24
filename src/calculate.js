@@ -24,7 +24,12 @@ export function addItem(person) {
   entry.appendChild(document.createTextNode('$' + price.toFixed(2)));
   const removeBtn = document.createElement('button');
   removeBtn.textContent = '-';
-  removeBtn.className = 'btn btn-outline-light btn-sm ms-3';
+  const theme = document.body.getAttribute('data-bs-theme');
+  if (theme === 'light') {
+    removeBtn.className = 'btn btn-outline-secondary btn-sm ms-3';
+  } else {
+    removeBtn.className = 'btn btn-outline-light btn-sm ms-3';
+  }
   removeBtn.onclick = () => {
     list.removeChild(entry);
     calculateTotals(allTotal, people);

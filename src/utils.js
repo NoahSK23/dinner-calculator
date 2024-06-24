@@ -42,4 +42,24 @@ export function setup() {
   brotherItemPrice.addEventListener('keypress', (e) =>
     handleKeyPress(e, 'brother')
   );
+
+  const themeToggle = document.getElementById('themeToggle');
+  themeToggle.addEventListener('click', () => changeTheme());
+}
+
+export function changeTheme() {
+  const theme = document.body.getAttribute('data-bs-theme');
+  const buttons = document.querySelectorAll('.btn');
+
+  if (theme === 'dark') {
+    document.body.setAttribute('data-bs-theme', 'light');
+    buttons.forEach((button) => {
+      button.classList.replace('btn-outline-light', 'btn-outline-secondary');
+    });
+  } else {
+    document.body.setAttribute('data-bs-theme', 'dark');
+    buttons.forEach((button) => {
+      button.classList.replace('btn-outline-secondary', 'btn-outline-light');
+    });
+  }
 }
