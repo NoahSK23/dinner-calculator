@@ -6,9 +6,13 @@
     <link rel="stylesheet" href="./styles/index.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dinner Calculator</title>
+    <meta
+      name="description"
+      content="Dinner Calculator for splitting the bill between me and my brother"
+    />
   </head>
   <body data-bs-theme="dark">
-    <div class="container my-4 align-items-center">
+    <div class="container my-4 pt-4 align-items-center">
       <div class="d-flex align-items-center">
         <h2 class="my-4">Dinner Calculator</h2>
         <button id="themeToggle" class="btn btn-outline-light ms-auto">
@@ -44,56 +48,65 @@
       <div class="row">
         <div class="col-6">
           <h2 class="mt-4">My Dinner Items</h2>
-          <ul id="myItemList"></ul>
+          <ul id="myItemList" class="list-group"></ul>
           <div class="row">
             <div class="col">
-              <div class="input-group">
-                <input
-                  type="number"
-                  class="form-control"
-                  id="myItemPrice"
-                  placeholder="Enter price"
-                />
-                <button id="addMyItem" class="btn btn-outline-light">
-                  Add Item
-                </button>
-              </div>
+              <form id="myItemForm">
+                <div class="input-group mt-4">
+                  <input
+                    type="number"
+                    min="0.01"
+                    step="0.01"
+                    class="form-control"
+                    id="myItemPrice"
+                    name="myItemPrice"
+                    placeholder="Enter price"
+                    required
+                  />
+                  <button id="addMyItem" class="btn btn-outline-light">
+                    Add Item
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
         <div class="col-6">
           <div class="my-4">
             <h2>Brother's Dinner Items</h2>
-            <ul id="brotherItemList"></ul>
+            <ul id="brotherItemList" class="list-group"></ul>
             <div class="row">
               <div class="col">
-                <div class="input-group">
-
-                  <input
-                  type="number"
-                  class="form-control"
-                  id="brotherItemPrice"
-                  placeholder="Enter price"
-                  />
-                  <button id="addBrotherItem" class="btn btn-outline-light">
-                    Add Item
-                  </button>
-                </div>
+                <form id="brotherItemForm">
+                  <div class="input-group mt-4">
+                    <input
+                      type="number"
+                      min="0.01"
+                      step="0.01"
+                      class="form-control"
+                      id="brotherItemPrice"
+                      name="brotherItemPrice"
+                      placeholder="Enter price"
+                      required
+                    />
+                    <button id="addBrotherItem" class="btn btn-outline-light">
+                      Add Item
+                    </button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
       <div id="totals" class="d-none">
         <h2>Totals</h2>
         <p id="myTotal"></p>
         <p id="myTotalTip"></p>
         <p id="myTotalTaxTip"></p>
-
         <p id="brotherTotal"></p>
         <p id="brotherTotalTip"></p>
         <p id="brotherTotalTaxTip"></p>
-
         <p id="grandTotal"></p>
       </div>
     </div>

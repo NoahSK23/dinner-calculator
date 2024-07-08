@@ -6,7 +6,7 @@ export function addItem(person) {
   let allTotal = parseFloat(document.getElementById('totalPrice').value);
   let people = parseFloat(document.getElementById('totalPeople').value);
 
-  if (isNaN(price)) {
+  if (isNaN(price) || price < 0) {
     alert('Please enter a valid number for the price.');
     return;
   }
@@ -20,15 +20,16 @@ export function addItem(person) {
   }
   const list = document.getElementById(person + 'ItemList');
   const entry = document.createElement('li');
-  entry.className = 'my-2';
+  entry.className =
+    'list-group-item d-flex justify-content-between align-items-center';
   entry.appendChild(document.createTextNode('$' + price.toFixed(2)));
   const removeBtn = document.createElement('button');
   removeBtn.textContent = '-';
   const theme = document.body.getAttribute('data-bs-theme');
   if (theme === 'light') {
-    removeBtn.className = 'btn btn-outline-secondary btn-sm ms-3';
+    removeBtn.className = 'btn btn-outline-secondary btn-sm ms-auto';
   } else {
-    removeBtn.className = 'btn btn-outline-light btn-sm ms-3';
+    removeBtn.className = 'btn btn-outline-light btn-sm ms-auto';
   }
   removeBtn.onclick = () => {
     list.removeChild(entry);
